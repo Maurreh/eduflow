@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduFlow | My Files</title>
+
+  <style>
+    :root {
+      --primary: #0f7a72;
+      --bg: #f4f6f8;
+      --white: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      background: var(--bg);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 260px;
+      background: var(--primary);
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 0.7rem 1rem;
+      margin-bottom: 0.7rem;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    table {
+      width: 100%;
+      background: var(--white);
+      border-collapse: collapse;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: #fafafa;
+    }
+
+    .delete-btn {
+      padding: 0.5rem 0.8rem;
+      background: #e63946;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <aside class="sidebar">
+    <div>
+      <h2>EduFlow</h2>
+      <div class="nav-links">
+         <a href="lecturer-dashboard.html">Dashboard</a>
+         <a href="lecturer-upload.html">Upload Materials</a>
+         <a class="active">My Files</a>
+         <a href="lecturer-engagement.html">Student Engagement</a>
+      </div>
+    </div>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </aside>
+
+  <main class="main-content">
+    <h1>Uploaded Files</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>File</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Programming</td>
+          <td>Lecture 1.pdf</td>
+          <td><button class="delete-btn">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <script>
+    function logout() {
+      window.location.href = "auth.html";
+    }
+  </script>
+
+</body>
+</html>

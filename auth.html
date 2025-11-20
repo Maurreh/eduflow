@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduFlow | Login or Sign Up</title>
+  <style>
+    :root {
+      --primary: #0f7a72;
+      --accent: #f59e0b;
+      --bg: #f9fafb;
+      --text: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .auth-container {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      width: 100%;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .auth-info {
+      background: linear-gradient(to bottom right, var(--primary), #13bfa2);
+      color: #fff;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .auth-info h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .auth-info p {
+      text-align: center;
+      max-width: 250px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .auth-form {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: space-around;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 1.5rem;
+    }
+
+    .tab-buttons button {
+      flex: 1;
+      padding: 0.8rem;
+      border: none;
+      background: none;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: 0.3s;
+    }
+
+    .tab-buttons button.active {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 0.95rem;
+    }
+
+    button[type="submit"] {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.8rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background: #0d5f5a;
+    }
+
+    .role-select {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .role-select label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .role-select select {
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .auth-container {
+        flex-direction: column;
+      }
+      .auth-info {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-info">
+      <h2>Welcome to EduFlow</h2>
+      <p>Access personalized study schedules, progress tracking, and learning materials with ease.</p>
+    </div>
+
+    <div class="auth-form">
+      <div class="tab-buttons">
+        <button id="login-tab" class="active">Login</button>
+        <button id="signup-tab">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form">
+        <div class="role-select">
+          <label for="login-role">I am a:</label>
+          <select id="login-role">
+            <option value="student">Student</option>
+            <option value="lecturer">Lecturer</option>
+          </select>
+        </div>
+        <div>
+          <label for="login-email">Email:</label>
+          <input type="email" id="login-email" required placeholder="Enter your email" />
+        </div>
+        <div>
+          <label for="login-password">Password:</label>
+          <input type="password" id="login-password" required placeholder="Enter your password" />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signup-form" style="display:none;">
+        <div class="role-select">
+          <label for="signup-role">I am a:</label>
+          <select id="signup-role">
+            <option value="student">Student</option>
+            <option value="lecturer">Lecturer</option>
+          </select>
+        </div>
+        <div>
+          <label for="signup-name">Full Name:</label>
+          <input type="text" id="signup-name" required placeholder="Enter your full name" />
+        </div>
+        <div>
+          <label for="signup-email">Email:</label>
+          <input type="email" id="signup-email" required placeholder="Enter your email" />
+        </div>
+        <div>
+          <label for="signup-password">Password:</label>
+          <input type="password" id="signup-password" required placeholder="Enter your password" />
+        </div>
+        <div>
+          <label for="signup-confirm">Confirm Password:</label>
+          <input type="password" id="signup-confirm" required placeholder="Confirm your password" />
+        </div>
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const loginTab = document.getElementById("login-tab");
+    const signupTab = document.getElementById("signup-tab");
+    const loginForm = document.getElementById("login-form");
+    const signupForm = document.getElementById("signup-form");
+
+    loginTab.addEventListener("click", () => {
+      loginTab.classList.add("active");
+      signupTab.classList.remove("active");
+      loginForm.style.display = "flex";
+      signupForm.style.display = "none";
+    });
+
+    signupTab.addEventListener("click", () => {
+      signupTab.classList.add("active");
+      loginTab.classList.remove("active");
+      signupForm.style.display = "flex";
+      loginForm.style.display = "none";
+    });
+
+    // Simulated form handling
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Login successful (placeholder)");
+      window.location.href = "student-dashboard.html"; 
+    });
+
+    signupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const pass = document.getElementById("signup-password").value;
+      const confirm = document.getElementById("signup-confirm").value;
+      if (pass !== confirm) {
+        alert("Passwords do not match!");
+        return;
+      }
+      alert("Account created successfully (placeholder)");
+      window.location.href = "student-dashboard.html"; 
+    });
+  </script>
+</body>
+</html>

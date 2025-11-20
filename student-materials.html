@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduFlow | My Materials</title>
+
+  <style>
+    :root {
+      --primary: #0f7a72;
+      --bg: #f4f6f8;
+      --text: #333;
+      --white: #fff;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background: var(--primary);
+      padding: 1.5rem 1rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: #fff;
+      padding: 0.7rem 1rem;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .logout-btn {
+      background: #e63946;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* Content */
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: #fafafa;
+    }
+
+    .download-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div>
+      <h2>EduFlow</h2>
+      <div class="nav-links">
+        <a href="student-dashboard.html">Dashboard</a>
+        <a href="student-materials.html" class="active">My Materials</a>
+        <a href="student-schedule.html">AI Schedule</a>
+        <a href="student-progress.html">Progress</a>
+      </div>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="main-content">
+    <h1>My Learning Materials</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Material</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody id="materialsBody">
+        <tr>
+          <td>Introduction to Programming</td>
+          <td>Week 1 Notes.pdf</td>
+          <td><button class="download-btn">Download</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    function logout() {
+      window.location.href = "auth.html";
+    }
+  </script>
+
+</body>
+</html>

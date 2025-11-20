@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduFlow | Smart Learning Platform</title>
+  <style>
+    :root {
+      --primary: #0f7a72;
+      --accent: #f59e0b;
+      --bg: #f9fafb;
+      --text: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(to right, var(--primary), #13bfa2);
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .hero button {
+      background: var(--accent);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: #e68900;
+    }
+
+    .features {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: #fff;
+      padding: 1.5rem;
+      text-align: center;
+      border-top: 1px solid #eaeaea;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">EduFlow</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="auth.html">Login</a>
+      <a href="auth.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Empowering Learning Through Smart AI</h1>
+    <p>
+      EduFlow helps teachers upload study materials and provides students with personalized
+      learning schedules and progress tracking-all in one platform.
+    </p>
+    <button onclick="window.location.href='auth.html'">Get Started</button>
+  </section>
+
+  <section id="features" class="features">
+    <div class="feature-card">
+      <h3>📘 Upload Materials</h3>
+      <p>
+        Teachers and lecturers can easily upload study resources including PDFs,
+        videos, and notes for students to access anytime.
+      </p>
+    </div>
+    <div class="feature-card">
+      <h3>🤖 AI Scheduling</h3>
+      <p>
+        The platform’s AI creates adaptive study timetables that fit each student’s
+        time and learning goals.
+      </p>
+    </div>
+    <div class="feature-card">
+      <h3>📊 Progress Tracking</h3>
+      <p>
+        Students can monitor their learning progress, completed modules, and upcoming sessions
+        through visual analytics.
+      </p>
+    </div>
+    <div class="feature-card">
+      <h3>🌐 Accessibility</h3>
+      <p>
+        Fully responsive design ensures that learning and teaching are seamless on both mobile
+        and desktop devices.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> EduFlow — Smart Learning for Everyone
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

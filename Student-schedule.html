@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduFlow | AI Schedule</title>
+
+  <style>
+    :root {
+      --primary: #0f7a72;
+      --bg: #f4f6f8;
+      --white: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background: var(--bg);
+    }
+
+    .sidebar {
+      width: 260px;
+      background: var(--primary);
+      padding: 1.5rem 1rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.7rem 1rem;
+      display: block;
+      border-radius: 6px;
+      margin-bottom: 0.7rem;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .logout-btn {
+      background: #e63946;
+      padding: 0.7rem;
+      border-radius: 6px;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .schedule-box {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 10px;
+      max-width: 600px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .generate-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.8rem 1rem;
+      border: none;
+      border-radius: 6px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div>
+      <h2>EduFlow</h2>
+      <div class="nav-links">
+        <a href="student-dashboard.html">Dashboard</a>
+        <a href="student-materials.html">My Materials</a>
+        <a class="active" href="student-schedule.html">AI Schedule</a>
+        <a href="student-progress.html">Progress</a>
+      </div>
+    </div>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="main-content">
+    <h1>AI Learning Scheduler</h1>
+
+    <div class="schedule-box">
+      <p>Click below to generate a personalized AI-based learning schedule.</p>
+
+      <button class="generate-btn" onclick="generateSchedule()">Generate Schedule</button>
+
+      <div id="scheduleResult" style="margin-top: 1rem; font-weight: 600;"></div>
+    </div>
+  </main>
+
+  <script>
+    function generateSchedule() {
+      document.getElementById("scheduleResult").innerText =
+        "Your personalized schedule will appear here (AI logic added in backend).";
+    }
+
+    function logout() {
+      window.location.href = "auth.html";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduFlow | Progress</title>
+
+  <style>
+    :root {
+      --primary: #0f7a72;
+      --bg: #f4f6f8;
+      --white: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      background: var(--bg);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 260px;
+      background: var(--primary);
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .nav-links a {
+      color: #fff;
+      display: block;
+      padding: 0.7rem 1rem;
+      margin-bottom: 0.7rem;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .nav-links a.active, 
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .logout-btn {
+      background: #e63946;
+      padding: 0.7rem;
+      border-radius: 6px;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .progress-box {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 10px;
+      max-width: 600px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <aside class="sidebar">
+    <div>
+      <h2>EduFlow</h2>
+      <div class="nav-links">
+        <a href="student-dashboard.html">Dashboard</a>
+        <a href="student-materials.html">My Materials</a>
+        <a href="student-schedule.html">AI Schedule</a>
+        <a class="active" href="student-progress.html">Progress</a>
+      </div>
+    </div>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </aside>
+
+  <main class="main-content">
+    <h1>Learning Progress</h1>
+
+    <div class="progress-box">
+      <p>Your progress data will appear here.</p>
+    </div>
+  </main>
+
+  <script>
+    function logout() {
+      window.location.href = "auth.html";
+    }
+  </script>
+
+</body>
+</html>
