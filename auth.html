@@ -233,26 +233,40 @@
     });
 
     // Simulated form handling
-    loginForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("Login successful (placeholder)");
-      window.location.href = "student-dashboard.html"; 
-      window.location.href = "lecturer-dashboard.html"; 
-    });
+   loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const role = document.getElementById("login-role").value;
 
-    signupForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const pass = document.getElementById("signup-password").value;
-      const confirm = document.getElementById("signup-confirm").value;
-      if (pass !== confirm) {
-        alert("Passwords do not match!");
-        return;
-      }
-      alert("Account created successfully (placeholder)");
-      window.location.href = "student-dashboard.html"; 
-      window.location.href = "lecturer-dashboard.html"; 
-    });
+  alert("Login successful (placeholder)");
+
+  if (role === "student") {
+    window.location.href = "student-dashboard.html";
+  } else if (role === "lecturer") {
+    window.location.href = "lecturer-dashboard.html";
+  }
+}); 
+
+   signupForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const pass = document.getElementById("signup-password").value;
+  const confirm = document.getElementById("signup-confirm").value;
+  if (pass !== confirm) {
+    alert("Passwords do not match!");
+    return;
+  }
+
+  const role = document.getElementById("signup-role").value;
+
+  alert("Account created successfully (placeholder)");
+
+  if (role === "student") {
+    window.location.href = "student-dashboard.html";
+  } else if (role === "lecturer") {
+    window.location.href = "lecturer-dashboard.html";
+  }
+});
   </script>
 </body>
 </html>
+
 
